@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { WaveSurface3D, PageNavigation } from '@/components';
 
 export default function EventsPage() {
@@ -74,7 +75,7 @@ export default function EventsPage() {
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-3">
-                          <img src="/images/robot-emoji.png" alt="Robot" className="w-12 h-12 object-contain" />
+                          <Image src="/images/robot-emoji.png" alt="Robot" width={48} height={48} className="w-12 h-12 object-contain" />
                           <h3 className="text-2xl font-semibold text-white">
                             AI Challenge - Robot Navigation
                           </h3>
