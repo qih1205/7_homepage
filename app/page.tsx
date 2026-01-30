@@ -52,7 +52,7 @@ export default function Home() {
         <div className="text-center space-y-6 max-w-3xl">
           {/* 标题 */}
           <h1 className="text-6xl md:text-8xl font-bold text-white drop-shadow-2xl mb-8">
-            Hi, I'm HuangQi
+            Hi, I&apos;m HuangQi
           </h1>
 
           {/* 描述 */}

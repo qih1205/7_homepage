@@ -197,7 +197,7 @@ export default function EventsPage() {
                   <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                     <div className="flex items-center gap-3 mb-3">
                       <span className="text-2xl">⭐</span>
-                      <h3 className="text-lg font-semibold">Dean's List</h3>
+                      <h3 className="text-lg font-semibold">Dean&apos;s List</h3>
                     </div>
                     <p className="text-white/70 text-sm">
                       University of Macau 2022-2024

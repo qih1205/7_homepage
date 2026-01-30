@@ -102,7 +102,7 @@ export const AIChat = ({ className = '' }: AIChatProps) => {
                   <img src="/images/robot-emoji.png" alt="Robot" className="w-8 h-8 object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold">7's Assistant</h3>
+                  <h3 className="text-white font-semibold">7&apos;s Assistant</h3>
                   <p className="text-white/60 text-xs">Powered by DeepSeek</p>
                 </div>
               </div>
