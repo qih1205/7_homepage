@@ -84,7 +84,9 @@ export default function Home() {
               href="/research"
               className="group bg-black/40 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all hover:scale-105 transform cursor-pointer"
             >
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform flex items-center justify-center">
+                <img src="/images/robot-emoji.png" alt="Robot" className="w-16 h-16 object-contain" />
+              </div>
               <h3 className="text-xl font-bold text-white mb-2">Research Interests</h3>
               <p className="text-white/70 group-hover:text-white/90 transition-colors">
                 Robotics & AI<br />
@@ -103,10 +105,11 @@ export default function Home() {
               className="group bg-black/40 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all hover:scale-105 transform cursor-pointer"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">💻</div>
-              <h3 className="text-xl font-bold text-white mb-2">Open Source</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Events</h3>
               <p className="text-white/70 group-hover:text-white/90 transition-colors">
-                Reproduction Tutorial<br />
-                Legged Robot Issaclab RL
+                Activities<br />
+                Competitions<br />
+                Open Source
               </p>
               <div className="mt-4 flex items-center gap-2 text-white/60 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                 <span>View Details</span>

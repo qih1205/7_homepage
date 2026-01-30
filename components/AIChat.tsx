@@ -44,6 +44,11 @@ export const AIChat = ({ className = '' }: AIChatProps) => {
       });
 
       if (!response.ok) {
+        // 处理 Rate Limiting 错误
+        if (response.status === 429) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || '请求过于频繁 / Too many requests');
+        }
         throw new Error('Failed to get response');
       }
 
@@ -52,17 +57,18 @@ export const AIChat = ({ className = '' }: AIChatProps) => {
     } catch (error) {
       console.error('Chat error:', error);
 
-      // 出错时使用备用响应
+      // 显示错误消息
+      const errorMessage = error instanceof Error ? error.message : '抱歉，我遇到了一些问题。请稍后再试。';
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: '抱歉，我遇到了一些问题。请稍后再试，或者通过邮箱联系HuangQi。'
+        content: errorMessage
       }]);
     } finally {
       setIsTyping(false);
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSend();
@@ -92,8 +98,8 @@ export const AIChat = ({ className = '' }: AIChatProps) => {
           <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 p-4 border-b border-white/20">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                  <span className="text-xl">🤖</span>
+                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center overflow-hidden">
+                  <img src="/images/robot-emoji.png" alt="Robot" className="w-8 h-8 object-contain" />
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">7's Assistant</h3>
@@ -150,7 +156,7 @@ export const AIChat = ({ className = '' }: AIChatProps) => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyDown}
                 placeholder="Type your message..."
                 className="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-white/40 focus:outline-none focus:border-emerald-500/50 transition-colors"
               />

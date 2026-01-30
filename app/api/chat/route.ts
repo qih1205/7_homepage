@@ -23,13 +23,14 @@ const SYSTEM_PROMPT = `你是一个友好的AI助手，负责回答关于HuangQi
 export async function POST(request: NextRequest) {
   // Rate Limiting 检查
   const ip = getClientIP(request);
-  const rateLimitResult = rateLimit(ip, 10, 60000); // 每分钟最多 10 次请求
+  const rateLimitResult = rateLimit(ip, 5, 60000); // 每 60 秒最多 5 次请求
 
   if (!rateLimitResult.success) {
+    const retryAfter = Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000);
     return NextResponse.json(
       {
-        error: 'Too many requests. Please try again later.',
-        retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000),
+        error: `请求过于频繁 请在 ${retryAfter} 秒后重试 // Too many requests. Please try again after ${retryAfter} seconds.`,
+        retryAfter,
       },
       {
         status: 429,
@@ -37,7 +38,7 @@ export async function POST(request: NextRequest) {
           'X-RateLimit-Limit': rateLimitResult.limit.toString(),
           'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
           'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
-          'Retry-After': Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000).toString(),
+          'Retry-After': retryAfter.toString(),
         },
       }
     );
