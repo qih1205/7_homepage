@@ -3,4 +3,5 @@ export { Card, CardHeader, CardContent, CardTitle, type CardProps, type CardHead
 export { Input, type InputProps } from './Input';
 export { WaveBackground, type WaveBackgroundProps } from './WaveBackground';
 export { WaveSurface3D, type WaveSurface3DProps } from './WaveSurface3D';
+export { AIChat, type AIChatProps } from './AIChat';
 export { ScrollSection, FloatingEntrance, type ScrollSectionProps, type FloatingEntranceProps } from './ScrollSection';
