@@ -103,10 +103,10 @@ export default function Home() {
               className="group bg-black/40 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all hover:scale-105 transform cursor-pointer"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform">💻</div>
-              <h3 className="text-xl font-bold text-white mb-2">Events</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Open Source</h3>
               <p className="text-white/70 group-hover:text-white/90 transition-colors">
-                Competitions<br />
-                Activities
+                Reproduction Tutorial<br />
+                Legged Robot Issaclab RL
               </p>
               <div className="mt-4 flex items-center gap-2 text-white/60 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                 <span>View Details</span>
@@ -121,7 +121,7 @@ export default function Home() {
           <div className="bg-black/50 backdrop-blur-lg rounded-2xl p-8 border border-white/30 flex items-center justify-between">
             <div className="flex-1">
               <p className="text-2xl text-white drop-shadow-lg mb-4">
-                Want more details?
+                Connection
               </p>
               <p className="text-white/80">
                 Click here to send an e-mail to me.

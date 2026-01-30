@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRelevantContext } from '@/lib/knowledge-base';
+import { rateLimit, getClientIP } from '@/lib/rate-limit';
 
 // AI 配置 - 使用 DeepSeek
 const AI_CONFIG = {
@@ -20,6 +21,28 @@ const SYSTEM_PROMPT = `你是一个友好的AI助手，负责回答关于HuangQi
 6. 使用中文回答`;
 
 export async function POST(request: NextRequest) {
+  // Rate Limiting 检查
+  const ip = getClientIP(request);
+  const rateLimitResult = rateLimit(ip, 10, 60000); // 每分钟最多 10 次请求
+
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      {
+        error: 'Too many requests. Please try again later.',
+        retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000),
+      },
+      {
+        status: 429,
+        headers: {
+          'X-RateLimit-Limit': rateLimitResult.limit.toString(),
+          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+          'X-RateLimit-Reset': new Date(rateLimitResult.resetTime).toISOString(),
+          'Retry-After': Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000).toString(),
+        },
+      }
+    );
+  }
+
   try {
     const { messages } = await request.json();
 
@@ -51,7 +74,7 @@ export async function POST(request: NextRequest) {
             role: 'system',
             content: `${SYSTEM_PROMPT}\n\n# 上下文信息\n${context}`
           },
-          ...messages.filter(m => m.role !== 'system')
+          ...messages.filter((m: { role: string }) => m.role !== 'system')
         ],
         temperature: 0.7,
         max_tokens: 500,
