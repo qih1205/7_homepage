@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { WaveSurface3D, AIChat } from '@/components';
 
 export default function Home() {
@@ -85,7 +86,7 @@ export default function Home() {
               className="group bg-black/40 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all hover:scale-105 transform cursor-pointer"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform flex items-center justify-center">
-                <img src="/images/robot-emoji.png" alt="Robot" className="w-10 h-10 object-cover" />
+                <Image src="/images/robot-emoji.png" alt="Robot" width={40} height={40} className="w-10 h-10 object-cover" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Research Interests</h3>
               <p className="text-white/70 group-hover:text-white/90 transition-colors">

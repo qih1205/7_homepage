@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 export interface AIChatProps {
   className?: string;
@@ -99,7 +100,7 @@ export const AIChat = ({ className = '' }: AIChatProps) => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center overflow-hidden">
-                  <img src="/images/robot-emoji.png" alt="Robot" className="w-8 h-8 object-contain" />
+                  <Image src="/images/robot-emoji.png" alt="Robot" width={32} height={32} className="w-8 h-8 object-contain" />
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">7&apos;s Assistant</h3>

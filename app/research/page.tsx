@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { WaveSurface3D, PageNavigation } from '@/components';
 
 export default function ResearchPage() {
@@ -19,7 +20,7 @@ export default function ResearchPage() {
           {/* 主要内容 */}
           <div className="bg-black/50 backdrop-blur-xl rounded-2xl p-12 border border-white/30">
             <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-2xl mb-8 flex items-center gap-4">
-              <img src="/images/robot-emoji.png" alt="Robot" className="w-24 h-24 object-contain" />
+              <Image src="/images/robot-emoji.png" alt="Robot" width={96} height={96} className="w-24 h-24 object-contain" />
               <span>Research Interests</span>
             </h1>
 

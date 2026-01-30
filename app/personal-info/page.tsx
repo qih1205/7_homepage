@@ -75,7 +75,7 @@ export default function PersonalInfoPage() {
                         </h3>
                         <p className="text-white/80 mb-2">Xi&apos;an Jiaotong University</p>
                         <p className="text-white/70 text-sm mb-3">
-                          Participated in the project "Research on the construction process of fully mechanized track changing".
+                          Participated in the project &quot;Research on the construction process of fully mechanized track changing&quot;.
                         </p>
                         <div className="space-y-2">
                           <p className="text-white/60 text-sm font-medium mb-2">Achievement:</p>
