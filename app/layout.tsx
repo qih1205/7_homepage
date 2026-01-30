@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Next.js 14 Template",
-  description: "A minimal Next.js 14 template with TypeScript and Tailwind CSS",
+  title: "HuangQi - Homepage",
+  description: "Shaping the robots that are shaping the future",
 };
 
 export default function RootLayout({
