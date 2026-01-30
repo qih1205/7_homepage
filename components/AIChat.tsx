@@ -103,7 +103,7 @@ export const AIChat = ({ className = '' }: AIChatProps) => {
                 </div>
                 <div>
                   <h3 className="text-white font-semibold">7&apos;s Assistant</h3>
-                  <p className="text-white/60 text-xs">Powered by DeepSeek</p>
+                  <p className="text-white/60 text-xs">Powered by <a href="https://platform.deepseek.com/usage" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors underline">DeepSeek</a></p>
                 </div>
               </div>
               <button

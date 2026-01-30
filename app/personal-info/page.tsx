@@ -1,6 +1,6 @@
 'use client';
 
-import { WaveSurface3D } from '@/components/WaveSurface3D';
+import { WaveSurface3D, PageNavigation } from '@/components';
 
 export default function PersonalInfoPage() {
   return (
@@ -13,18 +13,8 @@ export default function PersonalInfoPage() {
       {/* 内容区域 */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
         <div className="max-w-4xl mx-auto">
-          {/* 返回按钮 */}
-          <div className="mb-8">
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg hover:bg-white/30 transition-all drop-shadow-2xl border border-white/40 hover:scale-105 transform"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              <span>Back to Home</span>
-            </a>
-          </div>
+          {/* 页面导航 */}
+          <PageNavigation currentPage="personal-info" />
 
           {/* 主要内容 */}
           <div className="bg-black/50 backdrop-blur-xl rounded-2xl p-12 border border-white/30">
@@ -44,16 +34,31 @@ export default function PersonalInfoPage() {
                         <h3 className="text-2xl font-semibold text-white mb-2">
                           University of Macau
                         </h3>
-                        <p className="text-white/80 text-lg">Bachelor of Science in Computer Science</p>
+                        
+                        <p className="text-white/80 text-lg">Robotic and Autonomous Systems</p>
+                        <p className="text-white/80 text-lg">Research Direction: Legged Robot & Locomation & Navigation</p>
                       </div>
                       <span className="px-4 py-2 bg-emerald-500/20 text-emerald-300 rounded-lg text-sm font-medium">
-                        Current
+                        Master
+                      </span>
+                    </div>                   
+
+                    <p className="text-white/60">Expected Graduation: 2027</p>
+                  </div>
+
+                  <div className="border-t border-white/10 pt-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h3 className="text-2xl font-semibold text-white mb-2">
+                          Xi&apos;an Jiaotong University
+                        </h3>
+                        <p className="text-white/80 text-lg">Measurement and Control Technology</p>
+                      </div>
+                      <span className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-lg text-sm font-medium">
+                        Bachelor
                       </span>
                     </div>
-                    <p className="text-white/60">Expected Graduation: 2026</p>
-                    <p className="text-white/70 mt-3">
-                      Avenida da Universidade, Taipa, Macau, China
-                    </p>
+                    <p className="text-white/80 text-lg">Research Direction: Embedded Hardware & Software</p>
                   </div>
                 </div>
               </section>
@@ -68,51 +73,58 @@ export default function PersonalInfoPage() {
                         <h3 className="text-xl font-semibold text-white mb-2">
                           Research Assistant
                         </h3>
-                        <p className="text-white/80 mb-2">University of Macau</p>
-                        <p className="text-white/70 text-sm">
-                          Working on robotics and reinforcement learning projects
+                        <p className="text-white/80 mb-2">Xi&apos;an Jiaotong University</p>
+                        <p className="text-white/70 text-sm mb-3">
+                          Participated in the project "Research on the construction process of fully mechanized track changing".
                         </p>
+                        <div className="space-y-2">
+                          <p className="text-white/60 text-sm font-medium mb-2">Achievement:</p>
+                          <ul className="space-y-1.5 text-white/70 text-base">
+                            <li className="flex items-start gap-2">
+                              <span className="text-emerald-400 mt-0.5 text-sm">▹</span>
+                              <span>Proposing YoPNET target detection algorithm for inspection and maintenance of railroad components</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-emerald-400 mt-0.5 text-sm">▹</span>
+                              <span>Publication of one Chinese core journal</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-emerald-400 mt-0.5 text-sm">▹</span>
+                              <span>Two EI conference papers</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="text-emerald-400 mt-0.5 text-sm">▹</span>
+                              <span>One patent</span>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
-                      <span className="text-white/60 text-sm">2024 - Present</span>
+                      <span className="text-white/60 text-sm">2024.03 - 2025.07</span>
                     </div>
                   </div>
 
-                  <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
-                        <h3 className="text-xl font-semibold text-white mb-2">
-                          Software Developer Intern
-                        </h3>
-                        <p className="text-white/80 mb-2">Tech Company</p>
-                        <p className="text-white/70 text-sm">
-                          Full-stack development using React, Next.js, and Three.js
-                        </p>
-                      </div>
-                      <span className="text-white/60 text-sm">2023 - 2024</span>
-                    </div>
-                  </div>
                 </div>
               </section>
 
-              {/* 基本信息 */}
+              {/* 其他信息 */}
               <section>
-                <h2 className="text-3xl font-bold text-white mb-6">Basic Information</h2>
+                <h2 className="text-3xl font-bold text-white mb-6">Other Information</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                    <p className="text-white/60 text-sm mb-1">Name</p>
-                    <p className="text-white text-xl font-semibold">Huang Qi</p>
+                    <p className="text-white/60 text-sm mb-1">Technical Skills</p>
+                    <p className="text-white text-lg">Python, ROS, Issacsim, SLAM</p>
                   </div>
                   <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                    <p className="text-white/60 text-sm mb-1">Email</p>
-                    <p className="text-white text-lg">huangqi@um.edu.mo</p>
+                    <p className="text-white/60 text-sm mb-1">Research Areas</p>
+                    <p className="text-white text-lg">VLN, Reinforcement-Learning</p>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                    <p className="text-white/60 text-sm mb-1">Interests</p>
+                    <p className="text-white text-lg">Robotics, Open Source, AI Research</p>
                   </div>
                   <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                     <p className="text-white/60 text-sm mb-1">Location</p>
-                    <p className="text-white text-lg">Macau, China</p>
-                  </div>
-                  <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                    <p className="text-white/60 text-sm mb-1">Languages</p>
-                    <p className="text-white text-lg">Chinese, English</p>
+                    <p className="text-white text-lg">Guangdong, China</p>
                   </div>
                 </div>
               </section>

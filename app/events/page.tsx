@@ -1,6 +1,6 @@
 'use client';
 
-import { WaveSurface3D } from '@/components/WaveSurface3D';
+import { WaveSurface3D, PageNavigation } from '@/components';
 
 export default function EventsPage() {
   return (
@@ -13,18 +13,8 @@ export default function EventsPage() {
       {/* 内容区域 */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
         <div className="max-w-4xl mx-auto">
-          {/* 返回按钮 */}
-          <div className="mb-8">
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg hover:bg-white/30 transition-all drop-shadow-2xl border border-white/40 hover:scale-105 transform"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              <span>Back to Home</span>
-            </a>
-          </div>
+          {/* 页面导航 */}
+          <PageNavigation currentPage="events" />
 
           {/* 主要内容 */}
           <div className="bg-black/50 backdrop-blur-xl rounded-2xl p-12 border border-white/30">
